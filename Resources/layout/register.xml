@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registerbackground"
+    android:padding="16dp"
+    android:minWidth="25px"
+    android:minHeight="25px">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="0.20">
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logo_description"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="40dp"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="0.80">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:layout_marginTop="10dp"
+            android:id="@+id/usernameRegisterText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:id="@+id/emailRegisterText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:layout_marginTop="10dp"
+            android:id="@+id/passwordRegisterText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:imeOptions="actionNext"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:id="@+id/passwordConfirmRegisterText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="55dp"
+            android:layout_height="45dp"
+            android:text="@string/register"
+            android:textSize="16dp"
+            android:background="@drawable/roundbutton"
+            android:textColor="@color/colorPrimary"
+            android:textAllCaps="false"
+            android:layout_width="300dp"/>
+
+        <TextView
+            android:id="@+id/backToLoginTextView"
+            android:text="@string/here_login"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</LinearLayout>

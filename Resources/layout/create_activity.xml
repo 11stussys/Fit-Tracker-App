@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAdd"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/activityCreate"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/addActivityImageView"
+                android:contentDescription="Button to add a activity"
+                android:src="@drawable/accept_sign"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:layout_marginTop="10dp"
+            android:id="@+id/activityAddName"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activityName"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:layout_marginTop="10dp"
+            android:id="@+id/activityAddType"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activityType"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:layout_marginTop="10dp"
+            android:id="@+id/activityAddDescription"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activityDescription"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:layout_marginTop="10dp"
+            android:id="@+id/activityAddDuration"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activityDuration"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/motivationText"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+</LinearLayout>

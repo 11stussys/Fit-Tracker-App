@@ -1,0 +1,39 @@
+<resources>
+	<string name="app_name">FitTrackerApp</string>
+	<string name="app_title">Fit Tracker</string>
+	<string name="title_home">Home</string>
+	<string name="title_dashboard">Dashboard</string>
+	<string name="title_notifications">Notifications</string>
+
+	<!--Login page-->
+	<string name="logo_description">It is a logo of the app</string>
+	<string name="login">Login</string>
+	<string name="email">Email</string>
+	<string name="password">Password</string>
+	<string name="signup">Sign up</string>
+	<string name="using_socials">Sign in using</string>
+
+
+	<!--Registration page-->
+	<string name="username">Username</string>
+	<string name="confirm_password">Confirm password</string>
+	<string name="register">Register</string>
+	<string name="here_login">Click here to login</string>
+
+
+	<!--Progress Bar-->
+	<string name="wait">Please wait...</string>
+	
+	<!--Main Activity-->
+	<string name="activities">Your activities</string>
+
+
+	<!--Create Activity-->
+	<string name="activityCreate">Create Activity</string>
+	<string name="activityName">Activity name</string>
+	<string name="activityDescription">Description</string>
+	<string name="activityType">Type</string>
+	<string name="activityDuration">Duration (mins)</string>
+	<string name="activityCalories">Calories burned</string>
+	<string name="motivationText">\"The principle is competing against yourself. It’s about self-improvement, about being better than you were the day before.\" - Steve Young</string>
+</resources>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginTop="16dp"
+    app:cardElevation="2dp">
+
+
+   <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_below="@id/moreDetailsImageView">
+
+        <TextView
+            android:id="@+id/activityDurationTextView"
+            android:text="@string/activityDuration"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/activityDuration"
+            android:text="22 min"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityDurationTextView"/>
+
+        <TextView
+            android:id="@+id/activityTypeTextView"
+            android:text="@string/activityType"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_below="@+id/activityDuration"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/activityType"
+            android:text="Running"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_below="@+id/activityDuration"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityDurationTextView"/>
+
+        <TextView
+            android:id="@+id/activityCaloriesTextView"
+            android:text="@string/activityCalories"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_below="@+id/activityType"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/activityCalories"
+            android:text="220 kcal"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_below="@+id/activityType"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityDurationTextView"/>
+
+        <TextView
+            android:id="@+id/activityDescriptionTextView"
+            android:text="@string/activityDescription"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/activityDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/activityDescription"
+            android:gravity="center_horizontal"
+            android:text="This is my first training for about a 10 months. It was very hard but I managed it."
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_below="@+id/activityDuration"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/activityDuration"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/activityTypeImageView"
+            android:src="@drawable/running"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:id="@+id/activityNameTextView"
+            android:text="My thursday running"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:paddingTop="10dp"
+            android:paddingLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityTypeImageView"/>
+
+        <TextView
+            android:id="@+id/activityDateTextView"
+            android:text="20.03.2022 16:36"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:paddingTop="10dp"
+            android:paddingLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityTypeImageView"
+            android:layout_below="@+id/activityNameTextView"/>
+
+        <ImageView
+            android:id="@+id/moreDetailsImageView"
+            android:src="@android:drawable/ic_menu_more"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:adjustViewBounds="true"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
