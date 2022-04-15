@@ -51,6 +51,7 @@ namespace FitTrackerAppFinal.Adapter
     public class ActivityAdapterViewHolder : RecyclerView.ViewHolder
     {
         //Main Card
+        public RelativeLayout moreDetailsLayout { get; set; }
         public ImageView activityTypeImageView { get; set; }
         public TextView activityNameTextView { get; set; }
         public TextView activityDateTextView { get; set; }
@@ -67,10 +68,6 @@ namespace FitTrackerAppFinal.Adapter
         public TextView activityTypeTextView { get; set; }
         public TextView activityCaloriesTextView { get; set; }
         public TextView activityDescriptionTextView { get; set; }
-
-
-
-
         public ActivityAdapterViewHolder(View itemView, Action<ActivityAdapterClickEventArgs> clickListener,
                             Action<ActivityAdapterClickEventArgs> longClickListener) : base(itemView)
         {
@@ -79,11 +76,13 @@ namespace FitTrackerAppFinal.Adapter
             activityTypeImageView = itemView.FindViewById<ImageView>(Resource.Id.activityTypeImageView);
             activityDateTextView = itemView.FindViewById<TextView>(Resource.Id.activityDateTextView);
             moreDetailsImageView = itemView.FindViewById<ImageView>(Resource.Id.moreDetailsImageView);
+            moreDetailsLayout = itemView.FindViewById<RelativeLayout>(Resource.Id.moreDetailsLayout);
             //Additional info
             activityDuration = itemView.FindViewById<TextView>(Resource.Id.activityDuration);
             activityType = itemView.FindViewById<TextView>(Resource.Id.activityType);
             activityCalories = itemView.FindViewById<TextView>(Resource.Id.activityCalories);
             activityDescription = itemView.FindViewById<TextView>(Resource.Id.activityDescription);
+
             //Static info
             activityDurationTextView = itemView.FindViewById<TextView>(Resource.Id.activityDurationTextView);
             activityTypeTextView = itemView.FindViewById<TextView>(Resource.Id.activityTypeTextView);
@@ -92,6 +91,17 @@ namespace FitTrackerAppFinal.Adapter
 
             itemView.Click += (sender, e) => clickListener(new ActivityAdapterClickEventArgs { View = itemView});
             itemView.LongClick += (sender, e) => longClickListener(new ActivityAdapterClickEventArgs { View = itemView});
+            moreDetailsImageView.Click += MoreDetailsImageView_Click;
+        }
+
+        private void MoreDetailsImageView_Click(object sender, EventArgs e)
+        {
+            if (moreDetailsLayout.Visibility == ViewStates.Visible){
+                moreDetailsLayout.Visibility = ViewStates.Gone;
+            }
+            else if (moreDetailsLayout.Visibility == ViewStates.Gone){
+                moreDetailsLayout.Visibility = ViewStates.Visible;
+            }
         }
     }
 

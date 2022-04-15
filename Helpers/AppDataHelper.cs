@@ -7,6 +7,7 @@ using Android.Widget;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Firestore;
+using Firebase.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace FitTrackerApp.Helpers
 {
     public static class AppDataHelper
     {
+        static ISharedPreferences preferences = Application.Context.GetSharedPreferences("userinfo", FileCreationMode.Private);
+        static ISharedPreferencesEditor editor;
         public static FirebaseFirestore GetFirestore()
         {
             var app = FirebaseApp.InitializeApp(Application.Context);
@@ -66,6 +69,20 @@ namespace FitTrackerApp.Helpers
             }
 
             return userAuth;
+        }
+
+        public static void SaveUsername(string username)
+        {
+            editor = preferences.Edit();
+            editor.PutString("username", username);
+            editor.Apply();
+        }
+
+        public static string GetUsername()
+        {
+            string username = "";
+            username = preferences.GetString("username", "");
+            return username;
         }
     }
 }

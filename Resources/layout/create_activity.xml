@@ -54,25 +54,22 @@
                 android:textSize="18sp"
                 android:layout_width="match_parent"
                 android:hint="@string/activityName"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:imeOptions="actionNext"/>
         </com.google.android.material.textfield.TextInputLayout>
-        
-        <com.google.android.material.textfield.TextInputLayout
-            android:theme="@style/AppYellow"
-            android:layout_marginTop="10dp"
-            android:id="@+id/activityAddType"
+
+
+        <TextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-            <EditText
-                android:theme="@style/AppYellow"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:hint="@string/activityType"
-                android:inputType="textEmailAddress"
-                android:imeOptions="actionNext"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="10dip"
+            android:text="@string/activityType"/>
+        <Spinner
+            android:id="@+id/activityTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppYellow"
+            android:prompt="@string/activityType"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/AppYellow"
@@ -86,27 +83,71 @@
                 android:textSize="18sp"
                 android:layout_width="match_parent"
                 android:hint="@string/activityDescription"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:imeOptions="actionNext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/activityAddDate"
+            android:theme="@style/AppYellow"
+            android:focusable="false"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:hint="@string/activityDate"
+            android:inputType="text"
+            android:imeOptions="actionNext"/>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/AppYellow"
             android:layout_marginTop="10dp"
             android:id="@+id/activityAddDuration"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:visibility="gone">
             <EditText
                 android:theme="@style/AppYellow"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:layout_width="match_parent"
                 android:hint="@string/activityDuration"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
+                android:imeOptions="actionDone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:layout_marginTop="10dp"
+            android:id="@+id/activitySets"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activitySets"
+                android:inputType="number"
                 android:imeOptions="actionNext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:layout_marginTop="10dp"
+            android:id="@+id/activityReps"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activityReps"
+                android:inputType="number"
+                android:imeOptions="actionDone"/>
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

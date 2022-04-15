@@ -8,8 +8,10 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using Firebase;
 using Firebase.Auth;
+using Firebase.Database;
 using Firebase.Firestore;
 using FitTrackerApp.Helpers;
+using FitTrackerAppFinal.EventListeners;
 using FitTrackerAppFinal.Fragments;
 using Google.Android.Material.TextField;
 using Java.Util;
@@ -21,7 +23,7 @@ using System.Text;
 namespace FitTrackerAppFinal.Activities
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
-    public class RegisterActivity : AppCompatActivity, IOnSuccessListener, IOnFailureListener
+    public class RegisterActivity : AppCompatActivity
     {
         // XML Instances
         TextInputLayout usernameRegisterText, emailRegisterText, passwordRegisterText, passwordConfirmRegisterText;
@@ -32,6 +34,8 @@ namespace FitTrackerAppFinal.Activities
         FirebaseFirestore database;
         FirebaseAuth registerAuth;
 
+        //Listeners
+        TaskCompletionListeners taskCompletionListeners = new TaskCompletionListeners();
         //Variables
         ProgressDialogueFragment progressDialogue; 
 
@@ -100,30 +104,30 @@ namespace FitTrackerAppFinal.Activities
             }
             ShowProgressDialogue("Registering...");
             registerAuth.CreateUserWithEmailAndPassword(email, password)
-                .AddOnSuccessListener(this)
-                .AddOnFailureListener(this);
-                
+                .AddOnSuccessListener(this, taskCompletionListeners)
+                .AddOnFailureListener(this, taskCompletionListeners);
+
+            taskCompletionListeners.Sucess += (success, args) =>
+            {
+                HashMap userMap = new HashMap();
+                userMap.Put("username", username);
+                userMap.Put("email", email);
+                DocumentReference userReference = database.Collection("users").Document(registerAuth.CurrentUser.Uid);
+                userReference.Set(userMap);
+
+                CloseProgressDialogue();
+                Toast.MakeText(this, "Thank you for registering, you can log in now!", ToastLength.Short).Show();
+                StartActivity(typeof(LoginActivity));
+                Finish();
+            };
+
+            taskCompletionListeners.Failure += (failure, args) =>
+            {
+                CloseProgressDialogue();
+                Toast.MakeText(this, args.Cause, ToastLength.Short).Show();
+            };
         }
 
-        public void OnSuccess(Java.Lang.Object result)
-        {
-            HashMap userMap = new HashMap();
-            userMap.Put("username", username);
-            userMap.Put("email", email);
-            DocumentReference userReference = database.Collection("users").Document(registerAuth.CurrentUser.Uid);
-            userReference.Set(userMap);
-            
-            CloseProgressDialogue();
-            Toast.MakeText(this, "Thank you for registering, you can log in now!", ToastLength.Short).Show();
-            StartActivity(typeof(LoginActivity));
-            Finish();
-        }
-
-        public void OnFailure(Java.Lang.Exception e)
-        {
-            CloseProgressDialogue();
-            Toast.MakeText(this, e.Message, ToastLength.Short).Show(); Toast.MakeText(this, e.Message, ToastLength.Short).Show();
-        }
 
         //Progress bar functions
         void ShowProgressDialogue(string status)

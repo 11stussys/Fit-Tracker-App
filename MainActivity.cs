@@ -7,11 +7,13 @@ using AndroidX.AppCompat.App;
 using AndroidX.RecyclerView.Widget;
 using Firebase;
 using Firebase.Auth;
+using Firebase.Database;
 using Firebase.Firestore;
 using FitTrackerApp.Helpers;
 using FitTrackerAppFinal.Activities;
 using FitTrackerAppFinal.Adapter;
 using FitTrackerAppFinal.DataModels;
+using FitTrackerAppFinal.EventListeners;
 using Java.Util;
 using System.Collections.Generic;
 
@@ -24,6 +26,7 @@ namespace FitTrackerAppFinal
         AndroidX.AppCompat.Widget.Toolbar toolbar;
         AndroidX.DrawerLayout.Widget.DrawerLayout drawerLayout;
         Google.Android.Material.Navigation.NavigationView navigationView;
+        TextView navBarUsername;
         RecyclerView activityRecyclerView;
         ActivityAdapter activityAdapter;
         List<SportActivity> listOfActivities;
@@ -44,6 +47,10 @@ namespace FitTrackerAppFinal
             AndroidX.AppCompat.App.ActionBar actionBar = SupportActionBar;
             actionBar.SetHomeAsUpIndicator(Resource.Drawable.menuaction);
             actionBar.SetDisplayHomeAsUpEnabled(true);
+            
+            //Retrieves username on login
+            UsernameListener usernameListener = new UsernameListener();
+            usernameListener.FetchUser();
         }
 
         void ConnectViews()
@@ -52,7 +59,7 @@ namespace FitTrackerAppFinal
             toolbar = FindViewById<AndroidX.AppCompat.Widget.Toolbar>(Resource.Id.toolbar);
             drawerLayout = FindViewById<AndroidX.DrawerLayout.Widget.DrawerLayout>(Resource.Id.drawerLayout);
             navigationView = FindViewById<Google.Android.Material.Navigation.NavigationView>(Resource.Id.navView);
-
+            navBarUsername = FindViewById<TextView>(Resource.Id.navBarUsername);
             database = AppDataHelper.GetFirestore();
             userAuth = AppDataHelper.GetFirebaseAuth();
 

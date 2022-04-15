@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "339009802008",
+    "firebase_url": "https://fittrackerapp-5c269-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fittrackerapp-5c269",
+    "storage_bucket": "fittrackerapp-5c269.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339009802008:android:00c79ab197b7d038b2986d",
+        "android_client_info": {
+          "package_name": "com.stussydev.fittrackerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339009802008-jtvs9t06q62sc55a175au0bguostijko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv6Auw11W0uUh2v5QyZJBZS2-VmxqODFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339009802008-jtvs9t06q62sc55a175au0bguostijko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

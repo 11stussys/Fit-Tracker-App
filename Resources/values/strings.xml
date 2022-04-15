@@ -6,34 +6,43 @@
 	<string name="title_notifications">Notifications</string>
 
 	<!--Login page-->
-	<string name="logo_description">It is a logo of the app</string>
-	<string name="login">Login</string>
+	<string name="logo_description">Logo aplikacji</string>
+	<string name="login">Zaloguj się</string>
 	<string name="email">Email</string>
-	<string name="password">Password</string>
-	<string name="signup">Sign up</string>
-	<string name="using_socials">Sign in using</string>
+	<string name="password">Hasło</string>
+	<string name="signup">Zarejestruj się</string>
+	<string name="using_socials">Zaloguj się za pomocą</string>
 
 
 	<!--Registration page-->
-	<string name="username">Username</string>
-	<string name="confirm_password">Confirm password</string>
-	<string name="register">Register</string>
-	<string name="here_login">Click here to login</string>
+	<string name="username">Nazwa użytkownika</string>
+	<string name="confirm_password">Potwierdź hasło</string>
+	<string name="register">Rejestracja</string>
+	<string name="here_login">Naciśnij tutaj, aby się zalogować</string>
 
 
 	<!--Progress Bar-->
-	<string name="wait">Please wait...</string>
+	<string name="wait">Proszę czekać...</string>
 	
 	<!--Main Activity-->
-	<string name="activities">Your activities</string>
+	<string name="activities">Twoje aktywności</string>
 
 
 	<!--Create Activity-->
-	<string name="activityCreate">Create Activity</string>
-	<string name="activityName">Activity name</string>
-	<string name="activityDescription">Description</string>
-	<string name="activityType">Type</string>
-	<string name="activityDuration">Duration (mins)</string>
-	<string name="activityCalories">Calories burned</string>
+	<string name="activityCreate">Stwórz aktywność</string>
+	<string name="activityName">Nazwa aktywności</string>
+	<string name="activityDescription">Opis</string>
+	<string name="activityType">Typ</string>
+	<string name="activityDate">Data aktywności</string>
+	<string-array name="type_array">
+		<item>Bieganie</item>
+		<item>Trening siłowy</item>
+		<item>Trening cardio</item>
+		<item>Aeroby</item>
+	</string-array>
+	<string name="activitySets">Ilość serii</string>
+	<string name="activityReps">Ilość powtórzeń</string>
+	<string name="activityDuration">Czas</string>
+	<string name="activityCalories">Spalone kalorie</string>
 	<string name="motivationText">\"The principle is competing against yourself. It’s about self-improvement, about being better than you were the day before.\" - Steve Young</string>
 </resources>
