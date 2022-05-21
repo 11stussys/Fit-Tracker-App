@@ -79,27 +79,27 @@ namespace FitTrackerAppFinal.Activities
 
             if (username.Length < 4)
             {
-                Toast.MakeText(this, "Username has to be longer! Please use at least 4 digits.", ToastLength.Short).Show();
+                Toast.MakeText(this, "Nazwa użytkownika powinna zawierać więcej niż 4 znaki!", ToastLength.Short).Show();
                 return;
             }
             else if (!email.Contains("@"))
             {
-                Toast.MakeText(this, "Please enter a valid email address!", ToastLength.Short).Show();
+                Toast.MakeText(this, "Wpisz poprawny adres email!", ToastLength.Short).Show();
                 return;
             }
             else if (password != passwordConfirm)
             {
-                Toast.MakeText(this, "Passwords must be the same!", ToastLength.Short).Show();
+                Toast.MakeText(this, "Hasła muszą być te same!", ToastLength.Short).Show();
                 return;
             }
             else if (password == username)
             {
-                Toast.MakeText(this, "Username and password should be different!", ToastLength.Short).Show();
+                Toast.MakeText(this, "Nazwa użytkownika i hasło powinny się różnić!", ToastLength.Short).Show();
                 return;
             }
             else if (password.Length < 6)
             {
-                Toast.MakeText(this, "Password has to be longer! Please use at least 6 digits.", ToastLength.Short).Show();
+                Toast.MakeText(this, "Hasło musi zawierać przynajmniej 6 znaków!", ToastLength.Short).Show();
                 return;
             }
             ShowProgressDialogue("Registering...");
@@ -116,7 +116,7 @@ namespace FitTrackerAppFinal.Activities
                 userReference.Set(userMap);
 
                 CloseProgressDialogue();
-                Toast.MakeText(this, "Thank you for registering, you can log in now!", ToastLength.Short).Show();
+                Toast.MakeText(this, "Dziękujemy za rejestracje, możesz się zalogować!", ToastLength.Short).Show();
                 StartActivity(typeof(LoginActivity));
                 Finish();
             };

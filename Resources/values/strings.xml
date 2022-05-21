@@ -33,16 +33,87 @@
 	<string name="activityName">Nazwa aktywności</string>
 	<string name="activityDescription">Opis</string>
 	<string name="activityType">Typ</string>
+	<string name="activitySubtype">Podtyp</string>
 	<string name="activityDate">Data aktywności</string>
+	<string name="activitySets">Serie</string>
+	<string name="activityReps">Powtórzenia</string>
+	<string name="activityDuration">Czas (min)</string>
+	<string name="activityDistance">Dystans (km)</string>
+	<string name="activityCalories">Kalorie</string>
+	<string name="motivationText">\"The principle is competing against yourself. It’s about self-improvement, about being better than you were the day before.\" - Steve Young</string>
+	<string name="activityCaloriesPerKm">Spalone kalorie na 1km</string>
+	<string name="activityCaloriesPerRep">Spalone kalorie na powtórzenie</string>
+
+	<!-- Type and subtype arrays -->
 	<string-array name="type_array">
 		<item>Bieganie</item>
+		<item>Spacer</item>
 		<item>Trening siłowy</item>
-		<item>Trening cardio</item>
-		<item>Aeroby</item>
+		<item>Podciągnięcia</item>
+		<item>Przysiady</item>
+		<item>Brzuszki</item>
+		<item>Pompki</item>
 	</string-array>
-	<string name="activitySets">Ilość serii</string>
-	<string name="activityReps">Ilość powtórzeń</string>
-	<string name="activityDuration">Czas</string>
-	<string name="activityCalories">Spalone kalorie</string>
-	<string name="motivationText">\"The principle is competing against yourself. It’s about self-improvement, about being better than you were the day before.\" - Steve Young</string>
+
+	<string-array name="running_array">
+		<item>Przełajowy</item>
+		<item>Długodystansowy</item>
+		<item>Pod górę</item>
+		<item>Interwałowy</item>
+		<item>Sprint</item>
+		<item>Inny</item>
+	</string-array>
+
+	<string-array name="walking_array">
+		<item>Spokojny</item>
+		<item>Fitness</item>
+		<item>Wyczynowy</item>
+		<item>Interwałowy</item>
+		<item>Inny</item>
+	</string-array>
+
+	<string-array name="strenght_array">
+		<item>Full body workout</item>
+		<item>Split</item>
+		<item>Obwodowy</item>
+		<item>Cardio</item>
+		<item>Fitness</item>
+		<item>Interwałowy</item>
+		<item>Inne</item>
+	</string-array>
+
+	<string-array name="pullups_array">
+		<item>Szerokość barków</item>
+		<item>Szeroko</item>
+		<item>Wąsko</item>
+		<item>Inne</item>
+	</string-array>
+
+	<string-array name="squats_array">
+		<item>Klasyczny</item>
+		<item>Półprzysiad</item>
+		<item>Sumo</item>
+		<item>Złączone stopy</item>
+		<item>Bułgarski</item>
+		<item>Z wykrokiem</item>
+		<item>Inne</item>
+	</string-array>
+
+	<string-array name="situps_array">
+		<item>Klasyczne</item>
+		<item>Z uniesionymi nogami</item>
+		<item>Skośne</item>
+		<item>Rowerek</item>
+		<item>Podciągające</item>
+		<item>Inne</item>
+	</string-array>
+
+	<string-array name="pushups_array">
+		<item>Klasyczne</item>
+		<item>Na kolanach</item>
+		<item>Szeroko</item>
+		<item>Wąsko</item>
+		<item>Diamentowe</item>
+		<item>Inne</item>
+	</string-array>
 </resources>

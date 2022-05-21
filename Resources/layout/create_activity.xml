@@ -58,22 +58,8 @@
                 android:imeOptions="actionNext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:text="@string/activityType"/>
-        <Spinner
-            android:id="@+id/activityTypeSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppYellow"
-            android:prompt="@string/activityType"/>
-
         <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/AppYellow"
-            android:layout_marginTop="10dp"
             android:id="@+id/activityAddDescription"
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
@@ -95,12 +81,69 @@
             android:textSize="18sp"
             android:layout_width="match_parent"
             android:hint="@string/activityDate"
-            android:inputType="text"
+            android:inputType="date"
             android:imeOptions="actionNext"/>
 
+        <!-- Type Spinner -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activityType"/>
+        <Spinner
+            android:id="@+id/activityTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppYellow"
+            android:prompt="@string/activityType"/>
+
+        <!-- Subtypes -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activitySubtype"/>
+        <Spinner
+            android:id="@+id/activitySubtypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppYellow"
+            android:prompt="@string/activitySubtype"/>
+
+        <!--Calories per 1km-->
         <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/AppYellow"
-            android:layout_marginTop="10dp"
+            android:id="@+id/activityAddCaloriesPerKm"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activityCaloriesPerKm"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--Calories per rep-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
+            android:id="@+id/activityAddCaloriesPerRep"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activityCaloriesPerRep"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Running and walking inputs-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
             android:id="@+id/activityAddDuration"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -112,12 +155,28 @@
                 android:layout_width="match_parent"
                 android:hint="@string/activityDuration"
                 android:inputType="number"
-                android:imeOptions="actionDone"/>
+                android:imeOptions="actionNext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/AppYellow"
-            android:layout_marginTop="10dp"
+            android:id="@+id/activityAddDistance"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone">
+            <EditText
+                android:theme="@style/AppYellow"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:hint="@string/activityDistance"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionDone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Sets and reps-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:theme="@style/AppYellow"
             android:id="@+id/activitySets"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -134,7 +193,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/AppYellow"
-            android:layout_marginTop="10dp"
             android:id="@+id/activityReps"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -148,6 +206,7 @@
                 android:inputType="number"
                 android:imeOptions="actionDone"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

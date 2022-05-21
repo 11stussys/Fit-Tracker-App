@@ -16,6 +16,8 @@ namespace FitTrackerAppFinal.DataModels
         public string Username { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
+        public string Subtype { get; set; }
+        public int CaloriesBurned { get; set; }
         public DateTime ActivityDate { get; set; }
         public string ID { get; set; }
         public string OwnerID { get; set; }

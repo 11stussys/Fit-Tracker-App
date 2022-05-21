@@ -6,37 +6,17 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
     app:cardElevation="2dp"
+    app:cardCornerRadius="10dp"
     android:background="@color/colorPrimaryLight">
 
-
-   <RelativeLayout
+    <!--Additional info card-->
+    <RelativeLayout
         android:id="@+id/moreDetailsLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:layout_below="@id/moreDetailsImageView"
         android:visibility="gone">
-
-       <TextView
-               android:id="@+id/activityDurationTextView"
-               android:text="@string/activityDuration"
-               android:textSize="16sp"
-               android:textColor="@color/colorPrimaryLight"
-               android:textStyle="bold"
-               android:layout_marginTop="80dp"
-               android:layout_marginLeft="10dp"
-               android:layout_width="70dp"
-               android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/activityDuration"
-            android:text="22 min"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryLight"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/activityDurationTextView"/>
 
         <TextView
             android:id="@+id/activityTypeTextView"
@@ -44,22 +24,43 @@
             android:textSize="16sp"
             android:textColor="@color/colorPrimaryLight"
             android:textStyle="bold"
-            android:layout_below="@+id/activityDuration"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="80dp"
             android:layout_marginLeft="10dp"
-            android:layout_width="70dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/activityType"
             android:text="Running"
             android:textSize="16sp"
             android:textColor="@color/colorPrimaryLight"
-            android:layout_below="@+id/activityDuration"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityTypeTextView"/>
+
+        <TextView
+            android:id="@+id/activitySubtypeTextView"
+            android:text="@string/activitySubtype"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_below="@+id/activityType"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/activitySubtype"
+            android:text="Mocne"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_below="@+id/activityType"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/activityDurationTextView"/>
+            android:layout_toRightOf="@+id/activityTypeTextView"/>
 
         <TextView
             android:id="@+id/activityCaloriesTextView"
@@ -67,22 +68,22 @@
             android:textSize="16sp"
             android:textColor="@color/colorPrimaryLight"
             android:textStyle="bold"
-            android:layout_below="@+id/activityType"
+            android:layout_below="@+id/activitySubtypeTextView"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_width="70dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/activityCalories"
             android:text="220 kcal"
             android:textSize="16sp"
             android:textColor="@color/colorPrimaryLight"
-            android:layout_below="@+id/activityType"
-            android:layout_marginTop="19dp"
+            android:layout_below="@+id/activitySubtypeTextView"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/activityDurationTextView"/>
+            android:layout_toRightOf="@+id/activityTypeTextView"/>
 
         <TextView
             android:id="@+id/activityDescriptionTextView"
@@ -93,7 +94,7 @@
             android:gravity="center"
             android:layout_marginTop="80dp"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/activityDuration"
+            android:layout_toRightOf="@+id/activityType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
@@ -102,13 +103,117 @@
             android:text="This is my first training for about a 10 months. It was very hard but I managed it."
             android:textSize="16sp"
             android:textColor="@color/colorPrimaryLight"
-            android:layout_below="@+id/activityDuration"
+            android:layout_below="@+id/activityDescriptionTextView"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/activityDuration"/>
+            android:layout_toRightOf="@+id/activityType"/>
+        
+        <!-- Distance and duration-->
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/activityDistanceTextView"
+            android:text="@string/activityDistance"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_below="@+id/activityCaloriesTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/activityDistance"
+            android:text="0.6 km"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_below="@+id/activityCaloriesTextView"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityTypeTextView"/>
+         <TextView
+            android:visibility="gone"
+            android:id="@+id/activityDurationTextView"
+            android:text="@string/activityDuration"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_below="@+id/activityDistanceTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/activityDuration"
+            android:text="25 min"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_below="@+id/activityDistanceTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityTypeTextView"/>
+
+        <!--Sets and reps-->
+         <TextView
+            android:visibility="gone"
+            android:id="@+id/activitySetsTextView"
+            android:text="@string/activitySets"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_below="@+id/activityCaloriesTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/activitySets"
+            android:text="5 serii"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_below="@+id/activityCaloriesTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityTypeTextView"/>
+
+         <TextView
+            android:visibility="gone"
+            android:id="@+id/activityRepsTextView"
+            android:text="@string/activityReps"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_below="@+id/activitySetsTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/activityReps"
+            android:text="10 powtórzeń"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_below="@+id/activitySetsTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activityTypeTextView"/>
     </RelativeLayout>
+    <!--Main card-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="75dp"
@@ -119,6 +224,7 @@
             android:src="@drawable/running"
             android:layout_width="50dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             android:adjustViewBounds="true"/>
 
         <TextView
@@ -135,7 +241,7 @@
 
         <TextView
             android:id="@+id/activityDateTextView"
-            android:text="20.03.2022 16:36"
+            android:text="20.03.2022"
             android:textSize="16sp"
             android:textColor="@color/colorPrimaryDark"
             android:paddingTop="10dp"
@@ -147,8 +253,9 @@
 
         <ImageView
             android:id="@+id/moreDetailsImageView"
-            android:src="@android:drawable/ic_menu_more"
-            android:layout_width="40dp"
+            android:src="@drawable/activity_more"
+            android:layout_width="30dp"
+            android:layout_marginRight="10dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:adjustViewBounds="true"/>

@@ -67,22 +67,22 @@ namespace FitTrackerAppFinal.Activities
 
         private void GoogleLogin_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Not available yet :(", ToastLength.Short).Show();
+            Toast.MakeText(this, "Jeszcze niedostępne :(", ToastLength.Short).Show();
         }
 
         private void LinkedinLogin_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Not available yet :(", ToastLength.Short).Show();
+            Toast.MakeText(this, "Jeszcze niedostępne :(", ToastLength.Short).Show();
         }
 
         private void TwitterLogin_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Not available yet :(", ToastLength.Short).Show();
+            Toast.MakeText(this, "Jeszcze niedostępne :(", ToastLength.Short).Show();
         }
 
         private void FacebookLogin_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Not available yet :(", ToastLength.Short).Show();
+            Toast.MakeText(this, "Jeszcze niedostępne :(", ToastLength.Short).Show();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -94,17 +94,17 @@ namespace FitTrackerAppFinal.Activities
 
             if (password == "" || email == "")
             {
-                Toast.MakeText(this, "Please enter email and password!", ToastLength.Short).Show();
+                Toast.MakeText(this, "Wpisz email lub hasło!", ToastLength.Short).Show();
                 return;
             }
             else if (!email.Contains("@"))
             {
-                Toast.MakeText(this, "Please enter a valid email address!", ToastLength.Short).Show();
+                Toast.MakeText(this, "Podaj poprawny adres email!", ToastLength.Short).Show();
                 return;
             }
             else if (password.Length < 6)
             {
-                Toast.MakeText(this, "Password is incorrect.", ToastLength.Short).Show();
+                Toast.MakeText(this, "Hasło jest nieprawidłowe.", ToastLength.Short).Show();
                 return;
             }
             ShowProgressDialogue("Logging in...");
@@ -117,7 +117,7 @@ namespace FitTrackerAppFinal.Activities
         {
             CloseProgressDialogue();
             StartActivity(typeof(MainActivity));
-            Toast.MakeText(this, "Login successful", ToastLength.Short).Show();
+            Toast.MakeText(this, "Logowanie powiodło się!", ToastLength.Short).Show();
         }
 
         public void OnFailure(Java.Lang.Exception e)

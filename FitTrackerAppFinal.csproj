@@ -77,6 +77,7 @@
     <Compile Include="DataModels\RegularActivity.cs" />
     <Compile Include="DataModels\RunningActivity.cs" />
     <Compile Include="DataModels\SportActivity.cs" />
+    <Compile Include="EventListeners\SportActivityEventListener.cs" />
     <Compile Include="EventListeners\TaskCompletionListeners.cs" />
     <Compile Include="EventListeners\UsernameListener.cs" />
     <Compile Include="Fragments\DatePickerFragment.cs" />
@@ -325,6 +326,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\arrowback.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\activity_more.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pushups.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

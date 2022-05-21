@@ -13,5 +13,20 @@ namespace FitTrackerAppFinal.DataModels
 {
     public class RegularActivity : SportActivity
     {
+        public int Reps { get; set; }
+        public int Sets { get; set; }
+        public RegularActivity(string username, string name, string type, string subtype, int calories, DateTime date, string ownerID, string description, int reps, int sets)
+        {
+            this.Username = username;
+            this.Name = name;
+            this.Type = type;
+            this.Subtype = subtype;
+            this.CaloriesBurned = calories;
+            this.OwnerID = ownerID;
+            this.ActivityDate = date;
+            this.Description = description;
+            this.Reps = reps;
+            this.Sets = sets;
+        }
     }
 }

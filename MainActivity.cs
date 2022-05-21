@@ -26,6 +26,7 @@ namespace FitTrackerAppFinal
         AndroidX.AppCompat.Widget.Toolbar toolbar;
         AndroidX.DrawerLayout.Widget.DrawerLayout drawerLayout;
         Google.Android.Material.Navigation.NavigationView navigationView;
+        View navHeader;
         TextView navBarUsername;
         RecyclerView activityRecyclerView;
         ActivityAdapter activityAdapter;
@@ -40,8 +41,8 @@ namespace FitTrackerAppFinal
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
             ConnectViews();
-            CreateData();
-            SetupRecyclerView();
+            FetchSportActivity();
+            
             //Setup toolbar
             SetSupportActionBar(toolbar);
             AndroidX.AppCompat.App.ActionBar actionBar = SupportActionBar;
@@ -51,6 +52,7 @@ namespace FitTrackerAppFinal
             //Retrieves username on login
             UsernameListener usernameListener = new UsernameListener();
             usernameListener.FetchUser();
+            navBarUsername.Text = AppDataHelper.GetUsername(); 
         }
 
         void ConnectViews()
@@ -59,10 +61,10 @@ namespace FitTrackerAppFinal
             toolbar = FindViewById<AndroidX.AppCompat.Widget.Toolbar>(Resource.Id.toolbar);
             drawerLayout = FindViewById<AndroidX.DrawerLayout.Widget.DrawerLayout>(Resource.Id.drawerLayout);
             navigationView = FindViewById<Google.Android.Material.Navigation.NavigationView>(Resource.Id.navView);
-            navBarUsername = FindViewById<TextView>(Resource.Id.navBarUsername);
+            navHeader = navigationView.GetHeaderView(0);
+            navBarUsername = navHeader.FindViewById<TextView>(Resource.Id.navBarUsername);
             database = AppDataHelper.GetFirestore();
             userAuth = AppDataHelper.GetFirebaseAuth();
-
             activityRecyclerView = FindViewById<RecyclerView>(Resource.Id.activityRecycleView);
 
             //Click handlers
@@ -110,13 +112,19 @@ namespace FitTrackerAppFinal
             }      
         }
 
-        void CreateData()
+        void FetchSportActivity()
         {
-            listOfActivities = new List<SportActivity>();
-            listOfActivities.Add(new SportActivity { Name = "Bieganko", Description = "Testowy opis", Username = "Nazwa usera", ActivityDate = System.DateTime.Now });
-            listOfActivities.Add(new SportActivity { Name = "Pompeczki", Description = "Testowy opis", Username = "Nazwa usera", ActivityDate = System.DateTime.Today });
+            SportActivityEventListener sportActivityEventListener = new SportActivityEventListener();
+            sportActivityEventListener.FetchSportActivity();
+            sportActivityEventListener.OnActivityRetrieved += SportActivityEventListener_OnActivityRetrieved;
         }
 
+        private void SportActivityEventListener_OnActivityRetrieved(object sender, SportActivityEventListener.ActivityEventArgs e)
+        {
+            listOfActivities = new List<SportActivity>();
+            listOfActivities = e.SportActivities;
+            SetupRecyclerView();
+        }
         void SetupRecyclerView()
         {
             activityRecyclerView.SetLayoutManager(new AndroidX.RecyclerView.Widget.LinearLayoutManager(activityRecyclerView.Context));

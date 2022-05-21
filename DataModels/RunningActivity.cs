@@ -14,17 +14,20 @@ namespace FitTrackerAppFinal.DataModels
     public class RunningActivity : SportActivity
     {
         public int Duration { get; set; }
+        public double Distance { get; set; }
 
-        public RunningActivity(string username, string name, string type, DateTime date, string ID, string ownerID, string description, int duration)
+        public RunningActivity(string username, string name, string type, string subtype, int calories, DateTime date, string ownerID, string description, int duration, double distance)
         {
             this.Username = username;
             this.Name = name;
             this.Type = type;
-            this.ID = ID;
+            this.Subtype = subtype;
+            this.CaloriesBurned = calories;
             this.OwnerID = ownerID;
             this.ActivityDate = date;
             this.Description = description;
             this.Duration = duration;
+            this.Distance = distance;
         }
 
     }
