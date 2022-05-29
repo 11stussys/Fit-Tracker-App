@@ -94,24 +94,33 @@ namespace FitTrackerAppFinal.Activities
             activityMap.Put("activity_type", activityType);
             activityMap.Put("activity_subtype", activitySubtype);
             activityMap.Put("activity_description", description);
+            //calories settings using subtype
+
             if (activityType == "Bieganie" || activityType == "Spacer" || activityType == "Trening siłowy")
             {
                 if (activityType == "Bieganie" || activityType == "Spacer")
                 {
                     distance = Convert.ToDouble(activityDistance.EditText.Text, doubleSeparator);
-                    activityMap.Put("activity_distance", distance);
-                    if (activityCaloriesPerKm.EditText.Text != "") calories = Convert.ToDouble(activityCaloriesPerKm.EditText.Text, doubleSeparator) * distance;
-                    if (calories != null) activityMap.Put("calories_burned", calories);
+                    activityMap.Put("activity_distance", distance);                    
                 }
                 duration = Convert.ToInt32(activityDuration.EditText.Text);
-                activityMap.Put("activity_duration", duration);
+                activityMap.Put("activity_duration", duration); 
+                if (activityType == "Bieganie") calories = duration * 11;
+                else if (activityType == "Spacer") calories = duration * 5;
+                else if (activityType == "Trening siłowy") calories = duration * 4;
+                if (activityCaloriesPerKm.EditText.Text != "") calories = Convert.ToDouble(activityCaloriesPerKm.EditText.Text, doubleSeparator) * duration;
+                activityMap.Put("calories_burned", calories);
             }
             else
             {
                 sets = Convert.ToInt32(activitySets.EditText.Text);
                 reps = Convert.ToInt32(activityReps.EditText.Text);
+                if (activityType == "Podciągnięcia") calories = sets * reps;
+                else if (activityType == "Przysiady") calories = sets * reps / 3;
+                else if (activityType == "Brzuszki") calories = sets * reps / 3;
+                else if (activityType == "Pompki") calories = sets * reps / 2;
                 if (activityCaloriesPerRep.EditText.Text != "") calories = Convert.ToDouble(activityCaloriesPerRep.EditText.Text, doubleSeparator) * reps * sets;
-                if (calories != null) activityMap.Put("calories_burned", calories);
+                activityMap.Put("calories_burned", calories);
                 activityMap.Put("activity_sets", sets);
                 activityMap.Put("activity_reps", reps);
                 

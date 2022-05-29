@@ -4,6 +4,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.CardView.Widget;
 using AndroidX.RecyclerView.Widget;
 using Firebase;
 using Firebase.Auth;
@@ -28,6 +29,7 @@ namespace FitTrackerAppFinal
         Google.Android.Material.Navigation.NavigationView navigationView;
         View navHeader;
         TextView navBarUsername;
+        CardView navBarBiometrics;
         RecyclerView activityRecyclerView;
         ActivityAdapter activityAdapter;
         List<SportActivity> listOfActivities;
@@ -61,6 +63,7 @@ namespace FitTrackerAppFinal
             toolbar = FindViewById<AndroidX.AppCompat.Widget.Toolbar>(Resource.Id.toolbar);
             drawerLayout = FindViewById<AndroidX.DrawerLayout.Widget.DrawerLayout>(Resource.Id.drawerLayout);
             navigationView = FindViewById<Google.Android.Material.Navigation.NavigationView>(Resource.Id.navView);
+            navBarBiometrics = FindViewById<CardView>(Resource.Id.navBarBiometrics);
             navHeader = navigationView.GetHeaderView(0);
             navBarUsername = navHeader.FindViewById<TextView>(Resource.Id.navBarUsername);
             database = AppDataHelper.GetFirestore();
@@ -71,6 +74,11 @@ namespace FitTrackerAppFinal
             navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
             addActivityImageView.Click += delegate{
                 StartActivity(typeof(AddSportActivity));
+                Finish();
+            };
+
+            navBarBiometrics.Click += delegate {
+                StartActivity(typeof(AddBiometrics));
                 Finish();
             };
         }

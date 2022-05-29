@@ -45,7 +45,7 @@ namespace FitTrackerAppFinal.EventListeners
                     string name = item.Get("activity_name").ToString();
                     string type = item.Get("activity_type").ToString();
                     string subtype = item.Get("activity_subtype").ToString();
-                    int calories = 0;
+                    int calories = (int)item.Get("calories_burned");
                     string dateString = item.Get("activity_date").ToString();
                     DateTime date = Convert.ToDateTime(dateString);
                     string activityOwnerId = item.Get("owner_id").ToString();
@@ -54,17 +54,15 @@ namespace FitTrackerAppFinal.EventListeners
                     {
                         if (userId == activityOwnerId)
                         {
-                            if (type == "Bieganie" || type == "Spacer")
+                            if (type == "Bieganie" || type == "Spacer" || type == "Trening siłowy")
                             {
                                 int duration = Convert.ToInt32(item.Get("activity_duration"));
                                 double distance = Convert.ToDouble(item.Get("activity_distance"));
-                                if (subtype == "Inny") calories = (int)item.Get("calories_burned");
                                 RunningActivity runningActivity = new RunningActivity(username, name, type, subtype, calories, date, activityOwnerId, description, duration, distance);
                                 listOfActivities.Add(runningActivity);
                             }
                             else
                             {
-                                if (subtype == "Inne") calories = (int)item.Get("calories_burned");
                                 int sets = Convert.ToInt32(item.Get("activity_sets"));
                                 int reps = Convert.ToInt32(item.Get("activity_reps"));
                                 RegularActivity regularActivity = new RegularActivity(username, name, type, subtype, calories, date, activityOwnerId, description, sets, reps);

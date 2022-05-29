@@ -56,7 +56,7 @@ namespace FitTrackerAppFinal.Adapter
             else if (item.Type == "Pompki") holder.activityTypeImageView.SetImageResource(Resource.Drawable.pushups);
             holder.activitySubtype.Text = item.Subtype;
             holder.activityCalories.Text = item.CaloriesBurned.ToString();
-            if(item.Type == "Bieganie" || item.Type == "Spacer")
+            if(item.Type == "Bieganie" || item.Type == "Spacer" || item.Type == "Trening siłowy")
             {
                 RunningActivity castedItem = (RunningActivity)item;
                 //Making duration and distance visible
@@ -72,7 +72,12 @@ namespace FitTrackerAppFinal.Adapter
                 //Set values
                 holder.activityDistance.Text = castedItem.Distance.ToString();
                 holder.activityDuration.Text = castedItem.Duration.ToString();
-            }
+                if (item.Type == "Trening siłowy")
+                {
+                    holder.activityDistanceTextView.Visibility = ViewStates.Gone;
+                    holder.activityDistance.Visibility = ViewStates.Gone;
+                }
+                }
             else
             {
                 RegularActivity castedItem = (RegularActivity)item;

@@ -26,6 +26,7 @@
 	
 	<!--Main Activity-->
 	<string name="activities">Twoje aktywności</string>
+	<string name="updateInfo">Uzupełnij swoje dane biometryczne</string>
 
 
 	<!--Create Activity-->
@@ -41,7 +42,7 @@
 	<string name="activityDistance">Dystans (km)</string>
 	<string name="activityCalories">Kalorie</string>
 	<string name="motivationText">\"The principle is competing against yourself. It’s about self-improvement, about being better than you were the day before.\" - Steve Young</string>
-	<string name="activityCaloriesPerKm">Spalone kalorie na 1km</string>
+	<string name="activityCaloriesPerKm">Spalone kalorie na minute</string>
 	<string name="activityCaloriesPerRep">Spalone kalorie na powtórzenie</string>
 
 	<!-- Type and subtype arrays -->
@@ -115,5 +116,16 @@
 		<item>Wąsko</item>
 		<item>Diamentowe</item>
 		<item>Inne</item>
+	</string-array>
+
+	<!--Add biometrics-->
+	<string name="addBiometrics">Dane biometryczne</string>
+	<string name="weight">Waga (kg)</string>
+	<string name="height">Wzrost (cm)</string>
+	<string name="age">Wiek</string>
+	<string name="sex">Płeć</string>
+	<string-array name="sex_array">
+		<item>Mężczyzna</item>
+		<item>Kobieta</item>
 	</string-array>
 </resources>

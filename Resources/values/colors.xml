@@ -7,4 +7,6 @@
 	<color name="darkash">#EDEDED</color>
 	<color name="deepash">#9B9B9B</color>
 	<color name="lightash">#e2e2e2</color>
+	<color name="warning">#ffdb4c</color>
+	<color name="warningText">#CEB13D</color>
 </resources>
