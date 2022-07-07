@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -74,7 +75,7 @@
                 android:imeOptions="actionNext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/AppYellow"
             android:id="@+id/biometricsAddAge"
             android:layout_height="wrap_content"
@@ -90,7 +91,7 @@
                 android:imeOptions="actionNext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/sex"/>
@@ -101,13 +102,100 @@
             android:theme="@style/AppYellow"
             android:prompt="@string/sex"/>
 
-        <TextView
+        <!--Current Biometrics Card-->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/motivationText"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="10dp"
+            app:contentPadding="10dp"
+            app:cardBackgroundColor="@color/colorPrimary">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/currentBiometrics"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/currentHeightTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/height"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:id="@+id/currentHeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="165"
+                        android:layout_toRightOf="@+id/currentHeightTextView"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:id="@+id/currentWeightTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/currentHeightTextView"
+                        android:text="@string/weight"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:id="@+id/currentWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="74"
+                        android:layout_toRightOf="@+id/currentHeightTextView"
+                        android:layout_below="@+id/currentHeight"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:id="@+id/currentAgeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/currentWeightTextView"
+                        android:text="@string/age"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:id="@+id/currentAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="19"
+                        android:layout_toRightOf="@+id/currentHeightTextView"
+                        android:layout_below="@+id/currentWeight"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:id="@+id/currentSexTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/currentAgeTextView"
+                        android:text="@string/sex"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:id="@+id/currentSex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mężczyzna"
+                        android:layout_toRightOf="@+id/currentHeightTextView"
+                        android:layout_below="@+id/currentAge"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </LinearLayout>

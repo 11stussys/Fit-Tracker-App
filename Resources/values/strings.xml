@@ -27,6 +27,9 @@
 	<!--Main Activity-->
 	<string name="activities">Twoje aktywności</string>
 	<string name="updateInfo">Uzupełnij swoje dane biometryczne</string>
+	<string name="currentBMI">Twoje aktualne BMI: </string>
+	<string name="todayCalories">Dziś spaliłeś: </string>
+	<string name="describeBMI">Twoje BMI jest prawidłowe! :)</string>
 
 
 	<!--Create Activity-->
@@ -124,8 +127,13 @@
 	<string name="height">Wzrost (cm)</string>
 	<string name="age">Wiek</string>
 	<string name="sex">Płeć</string>
+	<string name="currentBiometrics">Twoje aktualne dane</string>
 	<string-array name="sex_array">
 		<item>Mężczyzna</item>
 		<item>Kobieta</item>
 	</string-array>
+
+	<!--User profile-->
+	<string name="userProfile">Twój profil</string>
+	<string name="BMI">BMI</string>
 </resources>

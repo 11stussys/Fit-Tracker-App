@@ -14,7 +14,7 @@ namespace FitTrackerAppFinal.EventListeners
 {
     public class TaskCompletionListeners : Java.Lang.Object, IOnSuccessListener, IOnFailureListener
     {
-        public event EventHandler<TaskSuccessEventArgs> Sucess;
+        public event EventHandler<TaskSuccessEventArgs> Success;
         public event EventHandler<TaskCompletionFailureEventArgs> Failure;
         public class TaskCompletionFailureEventArgs : EventArgs
         {
@@ -33,7 +33,7 @@ namespace FitTrackerAppFinal.EventListeners
 
         public void OnSuccess(Java.Lang.Object result)
         {
-            Sucess?.Invoke(this, new TaskSuccessEventArgs { Result = result });
+            Success?.Invoke(this, new TaskSuccessEventArgs { Result = result });
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Gms.Tasks;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -17,13 +18,15 @@ using System.Text;
 namespace FitTrackerAppFinal.Activities
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
-    public class AddBiometrics : AppCompatActivity
+    public class AddBiometrics : AppCompatActivity, IOnSuccessListener
     {
         AndroidX.AppCompat.Widget.Toolbar toolbarBiometrics;
         TextInputLayout biometricsHeight, biometricsWeight, biometricsAge;
         Spinner sexSpinner;
         string userSex;
         ImageView addBiometricsImageView;
+        TextView currentWeight, currentHeight, currentSex, currentAge;
+        DocumentReference biometricsRef = AppDataHelper.GetFirestore().Collection("users").Document(AppDataHelper.GetFirebaseAuth().CurrentUser.Uid);
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,6 +43,7 @@ namespace FitTrackerAppFinal.Activities
                     this, Resource.Array.sex_array, Android.Resource.Layout.SimpleSpinnerItem);
             adapterType.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             sexSpinner.Adapter = adapterType;
+            GetBiometrics();
             //Click handlers
             addBiometricsImageView.Click += AddBiometricsImageView_Click;
         }
@@ -96,11 +100,11 @@ namespace FitTrackerAppFinal.Activities
                 return;
             }
             
-            DocumentReference newActivityRef = AppDataHelper.GetFirestore().Collection("users").Document(AppDataHelper.GetFirebaseAuth().CurrentUser.Uid);
-            newActivityRef.Update("user_height", Convert.ToInt32(height));
-            newActivityRef.Update("user_weight", Convert.ToDouble(weight));
-            newActivityRef.Update("user_age", Convert.ToInt32(age));
-            newActivityRef.Update("user_sex", userSex.ToString());
+            
+            biometricsRef.Update("user_height", Convert.ToInt32(height));
+            biometricsRef.Update("user_weight", Convert.ToDouble(weight));
+            biometricsRef.Update("user_age", Convert.ToInt32(age));
+            biometricsRef.Update("user_sex", userSex.ToString());
             Toast.MakeText(this, "Dane biometryczne zaaktualizowane, gratulacje!", ToastLength.Short).Show();
             StartActivity(typeof(MainActivity));
             Finish();
@@ -120,6 +124,43 @@ namespace FitTrackerAppFinal.Activities
             biometricsAge = FindViewById<TextInputLayout>(Resource.Id.biometricsAddAge);
             sexSpinner = FindViewById<Spinner>(Resource.Id.sexSpinner);
             addBiometricsImageView = FindViewById<ImageView>(Resource.Id.addBiometricsImageView);
+
+            currentHeight = FindViewById<TextView>(Resource.Id.currentHeight);
+            currentWeight = FindViewById<TextView>(Resource.Id.currentWeight);
+            currentAge = FindViewById<TextView>(Resource.Id.currentAge);
+            currentSex = FindViewById<TextView>(Resource.Id.currentSex);
+        }
+        
+        void GetBiometrics()
+        {
+            biometricsRef.Get()
+                .AddOnSuccessListener(this);
+        }
+
+        public void OnSuccess(Java.Lang.Object result)
+        {
+            var snapshot = (DocumentSnapshot) result;
+
+            if (snapshot != null)
+            {
+                    currentHeight.Text = snapshot.Get("user_height") != null ? snapshot.Get("user_height").ToString() : "";
+                    currentWeight.Text = snapshot.Get("user_weight") != null ? snapshot.Get("user_weight").ToString() : "";
+                    currentAge.Text = snapshot.Get("user_age") != null ? snapshot.Get("user_age").ToString() : "";
+                    currentSex.Text = snapshot.Get("user_sex") != null ? snapshot.Get("user_sex").ToString() : "";
+            }
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    StartActivity(typeof(MainActivity));
+                    Finish();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
     }
 }

@@ -20,33 +20,105 @@
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"
         android:layout_width="250dp"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
         app:itemTextColor="@color/colorPrimaryDark">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/navBarBiometrics"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            app:cardElevation="2dp"
-            app:cardCornerRadius="20dp"
-            app:cardBackgroundColor="@color/warning">
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
             <TextView
-                android:text="@string/updateInfo"
-                android:textSize="12sp"
-                android:textColor="@color/warningText"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
+                android:id="@+id/empty_spacer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </androidx.cardview.widget.CardView>
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:text=""/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/todayCaloriesTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/todayCalories" 
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/todayCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19.5"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/currentBMITextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/currentBMI"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/currentBMI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19.5"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/describeBMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/describeBMI"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/navBarBiometrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/warning">
+                <TextView
+                    android:text="@string/updateInfo"
+                    android:textSize="12sp"
+                    android:textColor="@color/warningText"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

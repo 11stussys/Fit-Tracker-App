@@ -100,8 +100,18 @@ namespace FitTrackerAppFinal.Activities
             {
                 if (activityType == "Bieganie" || activityType == "Spacer")
                 {
+                    if (activityDistance.EditText.Text == "")
+                    {
+                        Toast.MakeText(this, "Ustaw dystans aktywności", ToastLength.Short).Show();
+                        return;
+                    }
                     distance = Convert.ToDouble(activityDistance.EditText.Text, doubleSeparator);
                     activityMap.Put("activity_distance", distance);                    
+                }
+                if (activityDuration.EditText.Text == "")
+                {
+                    Toast.MakeText(this, "Ustaw czas aktywności", ToastLength.Short).Show();
+                    return;
                 }
                 duration = Convert.ToInt32(activityDuration.EditText.Text);
                 activityMap.Put("activity_duration", duration); 
@@ -113,6 +123,16 @@ namespace FitTrackerAppFinal.Activities
             }
             else
             {
+                if (activitySets.EditText.Text == "")
+                {
+                    Toast.MakeText(this, "Ustaw ilość serii", ToastLength.Short).Show();
+                    return;
+                }
+                else if (activityReps.EditText.Text == "")
+                {
+                    Toast.MakeText(this, "Ustaw ilość powtórzeń", ToastLength.Short).Show();
+                    return;
+                }
                 sets = Convert.ToInt32(activitySets.EditText.Text);
                 reps = Convert.ToInt32(activityReps.EditText.Text);
                 if (activityType == "Podciągnięcia") calories = sets * reps;
@@ -126,6 +146,7 @@ namespace FitTrackerAppFinal.Activities
                 
             }
             DocumentReference newActivityRef = AppDataHelper.GetFirestore().Collection("activities").Document();
+            string activityID = newActivityRef.Id;
             newActivityRef.Set(activityMap);
             Toast.MakeText(this, "Aktywność utworzona, gratulacje!", ToastLength.Short).Show();
             StartActivity(typeof(MainActivity));

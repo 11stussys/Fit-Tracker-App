@@ -107,7 +107,7 @@ namespace FitTrackerAppFinal.Activities
                 .AddOnSuccessListener(this, taskCompletionListeners)
                 .AddOnFailureListener(this, taskCompletionListeners);
 
-            taskCompletionListeners.Sucess += (success, args) =>
+            taskCompletionListeners.Success += (success, args) =>
             {
                 HashMap userMap = new HashMap();
                 userMap.Put("username", username);

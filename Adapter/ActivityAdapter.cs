@@ -38,11 +38,10 @@ namespace FitTrackerAppFinal.Adapter
                 orderedList.Add(orderedActivity);
             }
             var item = orderedList[position];
-
             // Replace the contents of the view with that element
             var holder = viewHolder as ActivityAdapterViewHolder;
-            //holder.TextView.Text = items[position];
 
+            holder.activityIDTextView.Text = item.ID;
             holder.activityNameTextView.Text = item.Name;
             holder.activityDescription.Text = item.Description;
             holder.activityDateTextView.Text = item.ActivityDate.ToString("dd/MM/yyyy");
@@ -52,7 +51,8 @@ namespace FitTrackerAppFinal.Adapter
             else if (item.Type == "Trening siłowy") holder.activityTypeImageView.SetImageResource(Resource.Drawable.muscle);
             else if (item.Type == "Podciągnięcia") holder.activityTypeImageView.SetImageResource(Resource.Drawable.pullups);
             else if (item.Type == "Przysiady") holder.activityTypeImageView.SetImageResource(Resource.Drawable.squats);
-            else if (item.Type == "Brzuszki") holder.activityTypeImageView.SetImageResource(Resource.Drawable.situps);            else if (item.Type == "Spacer") holder.activityTypeImageView.SetImageResource(Resource.Drawable.walking);
+            else if (item.Type == "Brzuszki") holder.activityTypeImageView.SetImageResource(Resource.Drawable.situps);            
+            else if (item.Type == "Spacer") holder.activityTypeImageView.SetImageResource(Resource.Drawable.walking);
             else if (item.Type == "Pompki") holder.activityTypeImageView.SetImageResource(Resource.Drawable.pushups);
             holder.activitySubtype.Text = item.Subtype;
             holder.activityCalories.Text = item.CaloriesBurned.ToString();
@@ -98,7 +98,6 @@ namespace FitTrackerAppFinal.Adapter
         }
 
         public override int ItemCount => items.Count;
-
         void OnClick(ActivityAdapterClickEventArgs args) => ItemClick?.Invoke(this, args);
         void OnLongClick(ActivityAdapterClickEventArgs args) => ItemLongClick?.Invoke(this, args);
 
@@ -131,7 +130,7 @@ namespace FitTrackerAppFinal.Adapter
         public TextView activitySubtypeTextView { get; set; }
         public TextView activityCaloriesTextView { get; set; }
         public TextView activityDescriptionTextView { get; set; }
-
+        public TextView activityIDTextView { get; set; }
         //Static with visibility
         public TextView activityDistanceTextView { get; set; }
         public TextView activitySetsTextView { get; set; }
@@ -164,17 +163,17 @@ namespace FitTrackerAppFinal.Adapter
             activitySubtypeTextView = itemView.FindViewById<TextView>(Resource.Id.activitySubtypeTextView);
             activityCaloriesTextView = itemView.FindViewById<TextView>(Resource.Id.activityCaloriesTextView);
             activityDescriptionTextView = itemView.FindViewById<TextView>(Resource.Id.activityDescriptionTextView);
+            activityIDTextView = itemView.FindViewById<TextView>(Resource.Id.activityIDTextView);
 
             //Static with visibility
             activityDistanceTextView = itemView.FindViewById<TextView>(Resource.Id.activityDistanceTextView);
             activitySetsTextView = itemView.FindViewById<TextView>(Resource.Id.activitySetsTextView);
             activityRepsTextView = itemView.FindViewById<TextView>(Resource.Id.activityRepsTextView);
 
-            itemView.Click += (sender, e) => clickListener(new ActivityAdapterClickEventArgs { View = itemView});
-            itemView.LongClick += (sender, e) => longClickListener(new ActivityAdapterClickEventArgs { View = itemView});
+            itemView.Click += (sender, e) => clickListener(new ActivityAdapterClickEventArgs { View = itemView, Position = AdapterPosition});
+            itemView.LongClick += (sender, e) => longClickListener(new ActivityAdapterClickEventArgs { View = itemView, Position = AdapterPosition});
             moreDetailsImageView.Click += MoreDetailsImageView_Click;
         }
-
         private void MoreDetailsImageView_Click(object sender, EventArgs e)
         {
             if (moreDetailsLayout.Visibility == ViewStates.Visible){

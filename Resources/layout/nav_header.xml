@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:id="@+id/navHeader"
     android:background="@color/colorPrimaryDark">
 
 
-    <ImageView
-        android:id="@+id/profilePictureImageView"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/navBarPictureImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"

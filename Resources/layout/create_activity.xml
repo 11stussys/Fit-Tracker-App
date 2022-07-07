@@ -207,13 +207,13 @@
                 android:imeOptions="actionDone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
+        <!--<TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/motivationText"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"/>-->
     </LinearLayout>
 </LinearLayout>

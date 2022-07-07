@@ -5,22 +5,22 @@
 	<group>
 		<item
 			android:id="@+id/profileNav"
-			android:title="Profile"
+			android:title="Wyświetl profil"
 			android:icon="@drawable/profile"/>
 
 		<item
-			android:id="@+id/ownActivityNav"
-			android:title="Add your own activity"
+			android:id="@+id/editBiometrics"
+			android:title="Edytuj dane biometryczne"
+			android:icon="@drawable/edit_biometrics"/>
+
+		<item
+			android:id="@+id/addActivityDrawer"
+			android:title="Dodaj aktywność"
 			android:icon="@drawable/add"/>
 
 		<item
-			android:id="@+id/inviteFriendNav"
-			android:title="Invite a friend"
-			android:icon="@drawable/invite"/>
-
-		<item
 			android:id="@+id/logoutNav"
-			android:title="Logout"
+			android:title="Wyloguj się"
 			android:icon="@drawable/logout"/>
 	</group>
 

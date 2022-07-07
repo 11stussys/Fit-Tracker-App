@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight">
+
+     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarProfile"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/userProfile"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/editProfileImageView"
+                android:contentDescription="Button to edit a profile"
+                android:src="@drawable/edit_profile"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--First section-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilePictureImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/profileDefaultImage"/>
+
+    <TextView
+        android:id="@+id/profileUsername"
+        android:text="@string/app_name"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!--Data section-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/weight"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"/>
+        <TextView
+           android:id="@+id/profileWeight"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:text="20"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"/>
+
+        <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/height"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"/>
+        <TextView
+           android:id="@+id/profileHeight"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:text="164"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"/>
+
+        <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/age"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"/>
+        <TextView
+           android:id="@+id/profileAge"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:text="25"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"/>
+
+        <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/sex"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"/>
+        <TextView
+           android:id="@+id/profileSex"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:text="Mężczyzna"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"/>
+
+        <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="30dp"
+            android:text="@string/BMI"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="20sp"/>
+        <TextView
+           android:id="@+id/profileBMI"
+            android:background="@color/colorPrimary"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:text="26.91"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:textSize="20sp"/>
+    </LinearLayout>
+</LinearLayout>

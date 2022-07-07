@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item android:id="@+id/activityDetails"
-          android:title="Details" />
+          android:title="Szczegóły" />
 	<item android:id="@+id/activityEdit"
-          android:title="Edit" />
+          android:title="Edytuj" />
 	<item android:id="@+id/activityDelete"
-          android:title="Delete" />
+          android:title="Usuń" />
 </menu>

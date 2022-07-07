@@ -219,6 +219,12 @@
         android:layout_height="75dp"
         android:background="@color/colorPrimary">
 
+        <TextView
+            android:id="@+id/activityIDTextView"
+            android:text=""
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <ImageView
             android:id="@+id/activityTypeImageView"
             android:src="@drawable/running"

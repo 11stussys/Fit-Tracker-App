@@ -74,6 +74,7 @@
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
+    <Compile Include="Activities\UserProfile.cs" />
     <Compile Include="Adapter\ActivityAdapter.cs" />
     <Compile Include="DataModels\RegularActivity.cs" />
     <Compile Include="DataModels\RunningActivity.cs" />
@@ -116,6 +117,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="de.hdodenhof.circleimageview">
+      <Version>3.1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Media.Compat">
       <Version>28.0.0.3</Version>
     </PackageReference>
@@ -129,12 +136,18 @@
     <PackageReference Include="Xamarin.AndroidX.RecyclerView">
       <Version>1.2.1.6</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Auth">
       <Version>121.0.1.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
     <PackageReference Include="Xamarin.Firebase.Firestore">
       <Version>123.0.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.Storage">
+      <Version>119.2.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Google.Android.Material">
       <Version>1.5.0.2</Version>
@@ -338,6 +351,20 @@
     <AndroidResource Include="Resources\layout\add_biometrics.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\edit_biometrics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\user_profile.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\edit_profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

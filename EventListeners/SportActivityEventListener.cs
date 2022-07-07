@@ -15,7 +15,7 @@ using System.Text;
 
 namespace FitTrackerAppFinal.EventListeners
 {
-    public class SportActivityEventListener : Java.Lang.Object, IOnSuccessListener
+    public class SportActivityEventListener : Java.Lang.Object, IOnSuccessListener, IEventListener
     {
         public List<SportActivity> listOfActivities = new List<SportActivity>();
         public event EventHandler<ActivityEventArgs> OnActivityRetrieved;
@@ -27,20 +27,35 @@ namespace FitTrackerAppFinal.EventListeners
 
         public void FetchSportActivity()
         {
-            AppDataHelper.GetFirestore().Collection("activities").Get()
-                .AddOnSuccessListener(this);
+            AppDataHelper.GetFirestore().Collection("activities")
+                .AddSnapshotListener(this);
         }
 
         public void OnSuccess(Java.Lang.Object result)
         {
-            var snapshot = (QuerySnapshot)result;
+            OrganizeData(result);
+        }
+
+        public void OnEvent(Java.Lang.Object value, FirebaseFirestoreException error)
+        {
+            OrganizeData(value);
+        }
+
+        void OrganizeData(Java.Lang.Object value)
+        {
+            var snapshot = (QuerySnapshot)value;
 
             if (!snapshot.IsEmpty)
             {
+                if(listOfActivities.Count > 0)
+                {
+                    listOfActivities.Clear();
+                }
+
                 foreach (DocumentSnapshot item in snapshot.Documents)
                 {
                     string userId = AppDataHelper.GetFirebaseAuth().CurrentUser.Uid;
-
+                    string activityID = item.Id;
                     string username = item.Get("user").ToString();
                     string name = item.Get("activity_name").ToString();
                     string type = item.Get("activity_type").ToString();
@@ -58,14 +73,14 @@ namespace FitTrackerAppFinal.EventListeners
                             {
                                 int duration = Convert.ToInt32(item.Get("activity_duration"));
                                 double distance = Convert.ToDouble(item.Get("activity_distance"));
-                                RunningActivity runningActivity = new RunningActivity(username, name, type, subtype, calories, date, activityOwnerId, description, duration, distance);
+                                RunningActivity runningActivity = new RunningActivity(username, name, type, subtype, calories, date, activityID, activityOwnerId, description, duration, distance);
                                 listOfActivities.Add(runningActivity);
                             }
                             else
                             {
                                 int sets = Convert.ToInt32(item.Get("activity_sets"));
                                 int reps = Convert.ToInt32(item.Get("activity_reps"));
-                                RegularActivity regularActivity = new RegularActivity(username, name, type, subtype, calories, date, activityOwnerId, description, sets, reps);
+                                RegularActivity regularActivity = new RegularActivity(username, name, type, subtype, calories, date, activityID, activityOwnerId, description, sets, reps);
                                 listOfActivities.Add(regularActivity);
                             }
                         }
